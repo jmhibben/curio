@@ -1,8 +1,8 @@
-import { JexleDoc } from './interfaces'
+import { JexleDoc, JexleTitle } from './interfaces'
 
 class JexleSection {
-  protected _doc: any
-  protected _title: string
+  protected _doc: JexleDoc
+  protected _title: JexleTitle
   protected _content: string
   protected _subsections: JexleSection[]
 
@@ -10,21 +10,24 @@ class JexleSection {
     this._doc = _doc
     this._title = this._doc.title
     this._content = this._doc.content
-    for (let section of this._doc.subsections) {
-      let subsection = new JexleSection(section)
-      this._subsections.push(subsection)
+    this._subsections = []
+    if (this._doc.subsections != null) {
+      for (let section of this._doc.subsections) {
+        let subsection = new JexleSection(section)
+        this._subsections.push(subsection)
+      }
     }
   }
 
-  get title () {
+  get title (): JexleTitle {
     return this._title
   }
 
-  get content () {
+  get content (): string {
     return this._content
   }
 
-  get subsections () {
+  get subsections (): JexleSection[] {
     return this._subsections
   }
 }
