@@ -1,8 +1,10 @@
+import { JexleTitle } from '.'
+
 export interface JexleDoc {
-  title: string
+  title: JexleTitle
   content?: string
   subsections?: JexleDoc[]
-  meta: {
+  meta?: {
     start: number,
     end?: number
   }
