@@ -4,7 +4,7 @@ export const testLines = [
     '## I have a few headings, though',
     '### Headings are fun, you see',
     '## But they\'re easy to abuse, too',
-    '### And sometimes',
+    '### Because sometimes',
     '#### Just sometimes',
     '##### You might go',
     '###### A little too deep'
