@@ -1,6 +1,5 @@
-import { filter } from 'lodash'
 import { JexleSection } from './jexle-section'
-import { JexleDoc, HeadingData } from './interfaces'
+import { JexleDoc, JexleTitle, HeadingData } from './interfaces'
 import { getHeadings, sortHeadings } from './helpers'
 
 class JexleDocument {
@@ -69,10 +68,13 @@ class JexleDocument {
   * @param {string} _line The full line that the title is located on
   * @returns Heading text, excluding heading character(s)
   */
-  private static getTitle (_line: string): string {
+  private static getTitle (_line: string): JexleTitle {
     let words = _line.split(' ')
     let title = words.slice(1).join(' ')
-    return title
+    return {
+      text: title,
+      level: words[0].length
+    }
   }
 
   /**
