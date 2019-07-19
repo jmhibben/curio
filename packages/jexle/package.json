@@ -16,6 +16,7 @@
   "ava": {
     "files": [
       "test/**/*.spec.ts",
+      "test/**/*.spec.js",
       "!node_modules"
     ],
     "sources": [
