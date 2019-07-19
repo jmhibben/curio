@@ -1,56 +1,111 @@
 import test from 'ava'
 import { getHeading } from '../../src/helpers'
+import { testLines } from './static/lines'
 
-const lines = [
-  '# A happy little file',
-  'I only have a few lines, but that\'s okay. I enjoy having sparse contents.',
-  '## I have a few headings, though',
-  '### Headings are fun, you see',
-  '## But they\'re easy to abuse, too',
-  '### And sometimes',
-  '#### Just sometimes',
-  '##### You might go',
-  '###### A little too deep'
-]
-
-test('`getHeading` throws an error when `_level` is too high', t => {
+test('throws an error when `_level` is too high', t => {
   t.throws(() => {
-    getHeading(7, lines)
+    getHeading(7, testLines)
   })
 })
 
-test('`getHeading` throws an error when `_level` is too low', t => {
+test('throws an error when `_level` is too low', t => {
   t.throws(() => {
-    getHeading(0, lines)
+    getHeading(0, testLines)
   })
 })
 
-test('`getHeading` returns exactly one first-level heading from `lines`', t => {
-  let headings = getHeading(1, lines)
+test('returns exactly one first-level heading from `lines`', t => {
+  let headings = getHeading(1, testLines)
+  let expected = {
+    text: testLines[0],
+    line: 0,
+    level: 1
+  }
   t.is(headings.length, 1)
+  t.is(headings[0].text, expected.text)
+  t.is(headings[0].line, expected.line)
+  t.is(headings[0].level, expected.level)
 })
 
 test('returns exactly two second-level headings from `lines`', t => {
-  let headings = getHeading(2, lines)
+  let headings = getHeading(2, testLines)
+  const expected = [
+    {
+      text: testLines[2],
+      line: 2,
+      level: 2
+    },
+    {
+      text: testLines[4],
+      line: 4,
+      level: 2
+    }
+  ]
   t.is(headings.length, 2)
+  for (let i = 0; i < headings.length; ++i) {
+    t.is(headings[i].text, expected[i].text)
+    t.is(headings[i].line, expected[i].line)
+    t.is(headings[i].level, expected[i].level)
+  }
 })
 
 test('returns exactly two third-level headings from `lines`', t => {
-  let headings = getHeading(3, lines)
+  let headings = getHeading(3, testLines)
+  const expected = [
+    {
+      text: testLines[3],
+      line: 3,
+      level: 3
+    },
+    {
+      text: testLines[5],
+      line: 5,
+      level: 3
+    }
+  ]
   t.is(headings.length, 2)
+  for (let i = 0; i < headings.length; ++i) {
+    t.is(headings[i].text, expected[i].text)
+    t.is(headings[i].line, expected[i].line)
+    t.is(headings[i].level, expected[i].level)
+  }
 })
 
 test('returns exactly one fourth-level heading from `lines`', t => {
-  let headings = getHeading(4, lines)
+  let headings = getHeading(4, testLines)
+  const expected = {
+    text: testLines[6],
+    line: 6,
+    level: 4
+  }
   t.is(headings.length, 1)
+  t.is(headings[0].text, expected.text)
+  t.is(headings[0].line, expected.line)
+  t.is(headings[0].level, expected.level)
 })
 
 test('returns exactly one fifth-level heading from `lines`', t => {
-  let headings = getHeading(5, lines)
+  let headings = getHeading(5, testLines)
+  const expected = {
+    text: testLines[7],
+    line: 7,
+    level: 5
+  }
   t.is(headings.length, 1)
+  t.is(headings[0].text, expected.text)
+  t.is(headings[0].line, expected.line)
+  t.is(headings[0].level, expected.level)
 })
 
 test('returns exactly one sixth-level heading from `lines`', t => {
-  let headings = getHeading(6, lines)
+  let headings = getHeading(6, testLines)
+  const expected = {
+    text: testLines[8],
+    line: 8,
+    level: 6
+  }
   t.is(headings.length, 1)
+  t.is(headings[0].text, expected.text)
+  t.is(headings[0].line, expected.line)
+  t.is(headings[0].level, expected.level)
 })
