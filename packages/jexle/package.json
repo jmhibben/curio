@@ -38,9 +38,12 @@
     "mobx-preact": "^3.0.0",
     "preact": "^8.4.2",
     "preact-material-components": "^1.5.8",
-    "preact-routlet": "^1.1.0"
+    "preact-routlet": "^1.1.0",
+    "savarine-protocol": "^0.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.136",
+    "@types/node": "^12.6.8",
     "ava": "^2.2.0",
     "concurrently": "^4.1.1",
     "lodash": "^4.17.14",
