@@ -1,0 +1,5 @@
+export { HeadingData, HeadingsObject } from './headings'
+export { ParserRule, ParserRulesObject } from './parsing'
+export { Document } from './document'
+export { Title } from './title'
+export { Meta } from './meta'

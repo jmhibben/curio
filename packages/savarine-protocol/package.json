@@ -1,0 +1,25 @@
+{
+  "name": "savarine-protocol",
+  "version": "0.0.0",
+  "description": "Break documents into pieces for app comprehension",
+  "author": "James Hibben <jmhibben@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/savarine-protocol.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.136",
+    "@types/node": "^12.6.8",
+    "ava": "^2.2.0",
+    "lodash": "^4.17.15"
+  }
+}
